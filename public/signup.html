@@ -17,7 +17,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="index.html">About <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="#">Sign up</a>
-            <a class="nav-item nav-link" href="#">Log in</a>
+            <a class="nav-item nav-link" href="login.html">Log in</a>
           </div>
         </div>
       </nav>
@@ -79,48 +79,15 @@
             <div class="form-group row">
               <div class="col-sm-2">Interests</div>
               <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
-                    Legos
-                  </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                    <label class="form-check-label" for="gridCheck1">
-                      Painting
-                    </label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck1">
-                      <label class="form-check-label" for="gridCheck1">
-                        Cars
-                      </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                        <label class="form-check-label" for="gridCheck1">
-                          Sports
-                        </label>
-                      </div>
+                  <% interests.forEach(function(interest) { %>
                       <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="gridCheck1">
+                          <input class="form-check-input" value="<%= interest.id %>" type="checkbox" id="gridCheck1">
                           <label class="form-check-label" for="gridCheck1">
-                            Cooking
+                            <%=interest.name %>
                           </label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck1">
-                            <label class="form-check-label" for="gridCheck1">
-                             Reading
-                            </label>
-                          </div>
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="gridCheck1">
-                              <label class="form-check-label" for="gridCheck1">
-                                Music
-                              </label>
-                            </div>
+                  <% }); %>
+                
               </div>
             </div>
             <div class="form-group row">

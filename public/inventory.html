@@ -23,7 +23,6 @@
       </nav>
     </br>
     <div class="container">
-
         <table style="width:80%" class="table">
          
             <tr>
@@ -32,35 +31,15 @@
               <th>Details</th>
               <th>SKU</th>
             </tr>
-            <tr>
-              <td>Lego Duplo Set</td>
-              <td>5</td>
-              <td><a href="toydetails.html">View Details</a></td>
-              <td>001</td>
-            </tr>
-            <tr>
-              <td>Train</td>
-              <td>10</td>
-              <td><a href="toydetails.html">View Details</a></td>
-              <td>002</td>
-            </tr>
-            <tr>
-                <td>Chase</td>
-                <td>3</td>
-                <td><a href="toydetails.html">View Details</a></td>
-                <td>003</td>
-              </tr>
+            <% inventory.forEach(function(toy) { %>
               <tr>
-                  <td>Toy Piano</td>
-                  <td>2</td>
-                  <td><a href="toydetails.html">View Details</a></td>
-                  <td>004</td>
+                  <td><%= toy.name_of_toy %></td>
+                  <td><%= toy.stock_amount %></td>
+                  <td><a href="toydetails.html?id=<%= toy.id %>">View Details</a></td>
+                  <td><%= toy.sku %></td>
                 </tr>
-  
-  
+            <% }); %>
           </table>
-        
-    
     </div>    
     
       

@@ -26,13 +26,12 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatum officiis laboriosam aliquid magni veritatis in molestias reprehenderit, provident deleniti voluptatibus ipsa odit animi autem, exercitationem temporibus. Aspernatur, id maxime?</p>
 
       <div class="col-md-12 text-center">
-      <img src="https://images.homedepot-static.com/productImages/58843bc2-fd64-4667-813c-ee5756340e0b/svn/hey-play-train-sets-hw3300003-64_1000.jpg"  width="200" height="200">
+          <% inventory.forEach(function(toy) { %>
+            <img src="<%= toy.image1_url %>"  width="200" height="200">
+            <img src="<%= toy.image2_url %>"  width="200" height="200">
+          <% }); %>
+      
 
-      <img src="https://images.homedepot-static.com/productImages/58843bc2-fd64-4667-813c-ee5756340e0b/svn/hey-play-train-sets-hw3300003-64_1000.jpg"  width="200" height="200">
-
-      <img src="https://images.homedepot-static.com/productImages/58843bc2-fd64-4667-813c-ee5756340e0b/svn/hey-play-train-sets-hw3300003-64_1000.jpg"  width="200" height="200">
-
-      <img src="https://images.homedepot-static.com/productImages/58843bc2-fd64-4667-813c-ee5756340e0b/svn/hey-play-train-sets-hw3300003-64_1000.jpg"  width="200" height="200">
       </div>
 
       <div class="col-md-12 text-center"> <a href="signup.html" class="btn btn-primary btn-lg">Sign Up Now</a></div>

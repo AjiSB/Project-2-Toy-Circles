@@ -56,6 +56,26 @@ app.get('/login.html', function(req, res) {
 	res.render('login.html');
 });
 
+app.get('/dashboard.html', function(req, res) {
+	res.render('dashboard.html');
+});
+
+app.get('/toydetails.html', function(req, res) {
+	var id = req.query.id;
+	connection.query('SELECT * FROM toy_inventory WHERE id =' + id, function (error, results, fields) {
+		res.render('toydetails.html', {
+			toy: results[0],
+		});
+	  });
+});
+
+app.get('/delete', function(req, res) {
+	var id = req.query.id;
+	connection.query('DELETE FROM toy_inventory WHERE id =' + id, function (error, results, fields) {
+		res.redirect("/inventory.html");
+	  });
+});
+
 //app.use(express.static("public"));
 
 //integrate body-parser with express
@@ -65,19 +85,6 @@ app.get('/login.html', function(req, res) {
 	 
 	// parse application/json
 	app.use(bodyParser.json())
-
-
-
-
-
-// curl -X GET http://localhost:3001/animals
-
-app.get('/animals', function(req, res){
-	connection.query('SELECT * FROM animals', function (error, results, fields) {
-	  if (error) res.send(error)
-	  else res.json(results);
-	});
-});
 
 
 app.post('/animals', function(req, res){

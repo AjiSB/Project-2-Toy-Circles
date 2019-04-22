@@ -23,25 +23,26 @@
       </nav>
     </br>
     <div class="container">
-        <h4 class="col-md-12 text-center">Lego Duplo Set </h4>
+        <h4 class="col-md-12 text-center"><%= toy.name_of_toy %> </h4>
     </br>
         <figure class="figure">
-          <img src="https://m.media-amazon.com/images/S/aplus-media/mg/5a5fb694-e4bb-470a-a751-d236cfd61bba._SL300__.jpg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+          <img src="<%= toy.image1_url %>" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
           
         </figure>
         <figure class="figure">
-            <img src="https://target.scene7.com/is/image/Target/GUEST_763c01c6-eaca-45d7-81c8-cb880d325412?wid=488&hei=488&fmt=pjpeg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+            <img src="<%= toy.image2_url %>" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
            
           </figure>
-          <p>Play out real-life scenarios in LEGO® DUPLO® My Town: a recognizable world with modern DUPLO figures. There are endless play opportunities in this easy-to-build house-toddlers can have fun practicing activities and routines, from getting up in the morning, preparing and eating a meal to washing the car. Watch role-play skills develop as they play out everyday life with 3 DUPLO figures.</p>
+          
+          <p><%= toy.toy_description %></p>
         </br>
 
-        <p>No. in Stock: 5</p>
+        <p>No. in Stock: <%= toy.stock_amount %></p>
 
 
 
 
-       <button type="deletet" class="btn btn-danger text-center">Delete</button>
+       <a href="/delete?id=<%=toy.id %>" class="btn btn-danger text-center">Delete</a>
 
         
     

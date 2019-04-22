@@ -76,6 +76,10 @@ app.get('/delete', function(req, res) {
 	  });
 });
 
+app.get('/history.html', function(req, res) {
+	res.render('history.html');
+});
+
 //app.use(express.static("public"));
 
 //integrate body-parser with express

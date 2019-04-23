@@ -1,6 +1,6 @@
 USE toycircles_db;
 
-# Interests Table
+# Interests 
 
 INSERT INTO `interests` (`name`) VALUES ('Sports');
 INSERT INTO `interests` (`name`) VALUES ('Legos');
@@ -10,7 +10,7 @@ INSERT INTO `interests` (`name`) VALUES ('Reading');
 INSERT INTO `interests` (`name`) VALUES ('Music');
 INSERT INTO `interests` (`name`) VALUES ('Cooking');
 
-# Inventory Table
+# Inventory
 
 INSERT INTO `toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://m.media-amazon.com/images/S/aplus-media/mg/5a5fb694-e4bb-470a-a751-d236cfd61bba._SL300__.jpg', 'https://target.scene7.com/is/image/Target/GUEST_763c01c6-eaca-45d7-81c8-cb880d325412?wid=488&hei=488&fmt=pjpeg', 'Lego Duplo Set', '2', '10034', '25', 'Play out real-life scenarios in LEGO® DUPLO® My Town: a recognizable world with modern DUPLO figures. There are endless play opportunities in this easy-to-build house-toddlers can have fun practicing activities and routines, from getting up in the morning, preparing and eating a meal to washing the car. Watch role-play skills develop as they play out everyday life with 3 DUPLO figures.');
 
@@ -23,6 +23,15 @@ INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_o
 INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://target.scene7.com/is/image/Target/GUEST_ce974e63-7354-4fa1-a963-6cf87597cd54?wid=488&hei=488&fmt=pjpeg', 'https://i.ebayimg.com/images/g/sooAAOSwn01cCVbz/s-l300.png', 'Meowsic Keyboard Piano', '6', '10038', '4', 'Meowsic from B toys is a cat-inspired toddler keyboard. This interactive toy piano lets you choose between meows, bells, organ and banjo; 27 songs or create your own! Lyrics are included, so grab the retractable microphone and sing along. This lightweight and portable kids keyboard won many awards over the years, such has Disney\'s family fun toy of the year, Dr Toy, Creative Child Toy Award. With its sturdy, toddler-proof construction, Meowsic is the perfect way to introduce music to babies and toddlers. ');
 
 INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://images-na.ssl-images-amazon.com/images/I/61i3T4EA6xL._SX466_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/71wXWqVFV8L._SX466_.jpg', 'Fast Food Bus Kitchen Play Set', '7', '10039', '7', 'Kids can now manage their very own portable fast food trucks! This food bus comes with plenty of cooking utensils and play food. It is perfect for aspiring young chefs who want everyone to taste a sample of their cooking!');
+
+INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://shop.crayola.com/dw/image/v2/AALB_PRD/on/demandware.static/-/Sites-crayola-storefront/default/dwd02b963f/images/81-1362-0_Product_My-First_Paint_Paint-N-Canvas-Kit_F.jpg?sw=390&sh=350&sm=fit&sfrm=jpg', 'https://images-na.ssl-images-amazon.com/images/I/91X%2BPjq7ijL._SX425_.jpg', 'My First Paint And Canvas Kit', '3', '10040', '10', 'Everything your little one needs to create with paint in one convenient solution kit.Easy-to-grip triangular paint brush lets little hands create broad strokes of color.Reusable smock keeps clothes clean.Washable paint in 3 vibrant colors.');
+
+INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://i5.walmartimages.com/asr/40a25513-075f-4421-855e-19bfbba8381c_2.1da73b1d0cdaa25e58a6d00100bb9a45.jpeg', 'https://www.bigw.com.au/medias/sys_master/images/images/h90/hf0/12277972205598.jpg', 'LeapFrog LeapStart Interactive Learning System for Kids', '5', '10041', '12', 'LeapStart is an interactive learning system that gets kids excited about counting, learning to read, problem solving and more through fun, replayable activities. The magic behind LeapStart is a stylus that reads invisible dots on every page, triggering questions, challenges, songs, jokes and more.');
+
+INSERT INTO `toycircles_db`.`toy_inventory` (`image1_url`, `image2_url`, `name_of_toy`, `interest_id`, `sku`, `stock_amount`, `toy_description`) VALUES ('https://images-na.ssl-images-amazon.com/images/I/81bNkM6hDnL._SX466_.jpg', 'https://images-na.ssl-images-amazon.com/images/I/8195tUaKGNL._SX466_.jpg', 'Disney/Pixar Cars 3 Lightning McQueen 20-inch Vehicle', '4', '10042', '20', 'Disney/Pixar Cars movies entertain and warm fans hearts. Their compelling, comedy-adventures about teamwork, friendship and courage inspire audiences to go for it!');
+
+
+
 
 
 # Subscribers

@@ -114,7 +114,7 @@ app.get('/logout', function(req, res){
 app.get('/dashboard.html', function(req, res) {
 	var id = req.session.subscriber_id;
 
-	connection.query('SELECT DATE_FORMAT(delivery_date, "%W %M %e %Y") as delivery_date, name_of_toy, image1_url FROM monthly_curations LEFT JOIN toy_inventory ON toy_inventory_id =toy_inventory.id WHERE subscriber_id = ? AND delivery_date >= ?' ,[id, "2019-04-01 00:00:00"] , function (error, results, fields) {
+	connection.query('SELECT DATE_FORMAT(delivery_date, "%M %Y") as delivery_date, name_of_toy, image1_url FROM monthly_curations LEFT JOIN toy_inventory ON toy_inventory_id =toy_inventory.id WHERE subscriber_id = ? AND delivery_date >= ?' ,[id, "2019-04-01 00:00:00"] , function (error, results, fields) {
 		res.render('dashboard.html', {
 			toys: results || []
 		});

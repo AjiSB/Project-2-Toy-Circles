@@ -73,3 +73,8 @@ INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory
 INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('2', '2', '2019-04-01 00:00:00');
 INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('3', '1', '2019-04-01 00:00:00');
 INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('3', '5', '2019-04-01 00:00:00');
+
+-- INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('2', '4', '2019-05-01 00:00:00');
+-- INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('2', '2', '2019-05-01 00:00:00');
+-- INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('3', '1', '2019-05-01 00:00:00');
+-- INSERT INTO `toycircles_db`.`monthly_curations` (`subscriber_id`, `toy_inventory_id`, `delivery_date`) VALUES ('3', '5', '2019-05-01 00:00:00');

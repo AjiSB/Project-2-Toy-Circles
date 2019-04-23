@@ -18,7 +18,7 @@
           
             <a class="nav-item nav-link" href="dashboard.html">Dashboard</a>
             <a class="nav-item nav-link active" href="#">History</a>
-            <a class="nav-item nav-link" href="index.html">Log out</a>
+            <a class="nav-item nav-link" href="/logout">Log out</a>
           </div>
         </div>
       </nav>
@@ -31,7 +31,14 @@
             <th>Toys</th>
           </tr>
           <tr>
-            <td>January 2019</td>
+              <% history.forEach(function(toy) { %>
+                <tr>
+                    <td><%= toy.delivery_date %></td>
+                    <td><%= toy.toys %></td>
+                  </tr>
+              <% }); %>
+
+            <!-- <td>January 2019</td>
             <td>Train, Car, Bowling Set</td>
           </tr>
           <tr>
@@ -41,7 +48,7 @@
           <tr>
               <td>March 2019</td>
               <td>Paw Patrol Pups, Keyboard</td>
-            </tr>
+            </tr> -->
 
 
         </table>

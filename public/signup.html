@@ -24,31 +24,31 @@
       <div class="container">
 
         
-        <form>
+        <form action="/signup">
           <br/>
             <h2>About You</h2>
             <div class="form-group row">
                 <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-4">
-                  <input type="name" class="form-control" id="inputName" placeholder="Name">
+                  <input name="full_name" type="name" class="form-control" id="inputName" placeholder="Name">
                 </div>
               </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-4">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
               </div>
             </div>
             <div class="form-group row">
               <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
               <div class="col-sm-4">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
               </div>
             </div>
             <div class="form-group row">
                 <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
                 <div class="col-sm-4">
-                  <input type="address" class="form-control" id="inputAddress" placeholder="Address">
+                  <input name="address" type="address" class="form-control" id="inputAddress" placeholder="Address">
                 </div>
               </div>
             
@@ -59,7 +59,7 @@
             <div class="form-group row">
                 <label for="inputNumchildren" class="col-sm-2 col-form-label" >Num of Children</label>
                 <div class="col-sm-4">
-                <select id="inputNumChildren" class="form-control">
+                <select name="numchildren" id="inputNumChildren" class="form-control">
                   <option selected>Choose</option>
                   <option>1</option>
                   <option>2</option>
@@ -72,7 +72,7 @@
               <div class="form-group row">
                   <label for="inputAges" class="col-sm-2 col-form-label">Ages</label>
                   <div class="col-sm-4">
-                    <input type="ages" class="form-control" id="inputAges" placeholder="Ages">
+                    <input name="ages" type="ages" class="form-control" id="inputAges" placeholder="Ages">
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@
               <div class="col-sm-10">
                   <% interests.forEach(function(interest) { %>
                       <div class="form-check">
-                          <input class="form-check-input" value="<%= interest.id %>" type="checkbox" id="gridCheck1">
+                          <input name="interests[]" class="form-check-input" value="<%= interest.id %>" type="checkbox" id="gridCheck1">
                           <label class="form-check-label" for="gridCheck1">
                             <%=interest.name %>
                           </label>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group row">
             
-                  <div class="col-md-12 text-center"> <a href="dashboard.html" class="btn btn-primary btn-lg">Sign Up Now</a></div>
+                  <div class="col-md-12 text-center"> <button class="btn btn-primary btn-lg">Sign Up Now</button</div>
 
                 <!-- <button type="submit" class="btn btn-primary">Sign Up</button> -->
               </div>

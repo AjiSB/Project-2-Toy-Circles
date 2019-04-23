@@ -16,6 +16,15 @@ var connection = mysql.createConnection({
  
 connection.connect();
 
+//session stuff
+var cookieParser = require('cookie-parser');
+
+var session = require('express-session');
+
+//allow sessions
+app.use(session({ secret: 'app'}));
+app.use(cookieParser());
+
 //integrate method override with express
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
@@ -39,6 +48,23 @@ app.get('/signup.html', function(req, res) {
 	});			
 });
 
+app.get('/signup', function(req, res) {
+	// insert new user into subscribers table
+	connection.query('INSERT INTO subscriber (`name`, `email`, `password_hash`, `address`, `num_children`, `ages`) VALUES (?, ?, ?, ?, ?, ?)', [req.query.full_name, req.query.email, req.query.password, req.query.address, req.query.numchildren, req.query.ages],function (error, results, fields) {
+		var subscriber_id = results.insertId;
+		var delivery_date = "2019-05-01 00:00:00";
+		req.session.subscriber_id = subscriber_id;
+
+		req.query.interests.forEach(function(interest_id){
+			connection.query('INSERT INTO subscriber_interests (interest_id, subscriber_id) VALUES (?, ?)', [interest_id, subscriber_id],function (error, results, fields) {});
+
+			// Insert toys into the monthly curation that match the interests
+			connection.query('INSERT INTO monthly_curations (subscriber_id, toy_inventory_id, delivery_date) VALUES (?, (SELECT id from toy_inventory WHERE interest_id = ? LIMIT 1), ?)', [subscriber_id, interest_id, delivery_date ],function (error, results, fields) {});
+		});
+		res.redirect('/dashboard.html');
+	  });
+});
+
 
 app.get('/admin_dashboard.html', function(req, res) {
 	res.render('admin_dashboard.html');
@@ -55,9 +81,44 @@ app.get('/inventory.html', function(req, res) {
 app.get('/login.html', function(req, res) {
 	res.render('login.html');
 });
+// log in url-when you log in with nothing,redirect to log in. when you log in with email,match it to subscriber eamail and password. when you log in with me,take me to admin dboard, else redirect to user dashboard
+app.get('/login', function(req, res){
+	connection.query('SELECT * FROM subscriber WHERE email = ? AND password_hash = ?', [req.query.email, req.query.password],function (error, results, fields) {
+	  if (error) throw error;
+	
+	  if (results.length == 0){
+	  	res.redirect('/login.html');
+	  }else {
+	  	req.session.subscriber_id = results[0].id;
+	  	req.session.email = results[0].email;
+
+		  if (req.query.email == "bayoajisohna@gmail.com"){
+			  res.redirect('/admin_dashboard.html');
+		  }else {
+			res.redirect('/dashboard.html');
+		  }
+	  	
+	  }
+
+	});
+});
+
+app.get('/logout', function(req, res){
+	req.session.destroy(function(err) {
+	   res.redirect('/index.html');
+	})
+	
+});
+
 
 app.get('/dashboard.html', function(req, res) {
-	res.render('dashboard.html');
+	var id = req.session.subscriber_id;
+
+	connection.query('SELECT DATE_FORMAT(delivery_date, "%W %M %e %Y") as delivery_date, name_of_toy, image1_url FROM monthly_curations LEFT JOIN toy_inventory ON toy_inventory_id =toy_inventory.id WHERE subscriber_id = ? AND delivery_date >= ?' ,[id, "2019-04-01 00:00:00"] , function (error, results, fields) {
+		res.render('dashboard.html', {
+			toys: results || []
+		});
+	  });
 });
 
 app.get('/toydetails.html', function(req, res) {
@@ -77,27 +138,25 @@ app.get('/delete', function(req, res) {
 });
 
 app.get('/history.html', function(req, res) {
-	res.render('history.html');
+	var id = req.session.subscriber_id;
+	
+	//Got help with SQL- had to join the inventory table with the monthly curation to match subscriber with toys sent and delivery date
+	connection.query('SELECT DATE_FORMAT(delivery_date, "%M %Y") as delivery_date, GROUP_CONCAT(name_of_toy) as toys FROM monthly_curations LEFT JOIN toy_inventory ON toy_inventory_id =toy_inventory.id WHERE subscriber_id = ' + id + ' GROUP BY delivery_date', function (error, results, fields) {
+		res.render('history.html', {
+			history: results || []
+		});
+	  });
 });
 
-//app.use(express.static("public"));
 
 //integrate body-parser with express
 
-	// parse application/x-www-form-urlencoded
-	app.use(bodyParser.urlencoded({ extended: false }))
-	 
-	// parse application/json
-	app.use(bodyParser.json())
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+	
+// parse application/json
+app.use(bodyParser.json())
 
-
-app.post('/animals', function(req, res){
-
-	connection.query('INSERT INTO animals (animal_name) VALUES (?)', [req.body.animal_name],function (error, results, fields) {
-	  if (error) res.send(error);
-	  else res.redirect('/');
-	});
-});
 
 //so if the user hits a route that does not exist then redirec them to the home page
 app.get('*', function(req, res){

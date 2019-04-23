@@ -18,7 +18,7 @@
           
             <a class="nav-item nav-link active" href="#">Dashboard</a>
             <a class="nav-item nav-link" href="history.html">History</a>
-            <a class="nav-item nav-link" href="index.html">Log out</a>
+            <a class="nav-item nav-link" href="/logout">Log out</a>
           </div>
         </div>
       </nav>
@@ -28,30 +28,15 @@
       </br></div>
        
       <div class="col-md-12 text-center">
-          
-          <figure class="figure">
-              <img src="https://images.homedepot-static.com/productImages/58843bc2-fd64-4667-813c-ee5756340e0b/svn/hey-play-train-sets-hw3300003-64_1000.jpg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-              <figcaption class="figure-caption">Thomas and Friends Toy Engine</figcaption>
-            </figure>
-    
+          <% toys.forEach(function(toy) { %>
             <figure class="figure">
-          <img src="https://m.media-amazon.com/images/S/aplus-media/mg/5a5fb694-e4bb-470a-a751-d236cfd61bba._SL300__.jpg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-              <figcaption class="figure-caption">Lego Duplo Box Set</figcaption>
-            </figure>
-      </br>
-
-          <figure class="figure">
-              <img src="https://images-na.ssl-images-amazon.com/images/I/61i3T4EA6xL._SX466_.jpg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                  <figcaption class="figure-caption">Mini Kitchen PLayset</figcaption>
-                </figure>
-    
-    
-          <figure class="figure">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSFVHZ2GyLwjWZVeMIfu0VSLU8qG-d7PEGxdHvo10znhhsfhPxjg" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
-                  <figcaption class="figure-caption">Mini Bowling Set</figcaption>
-                </figure>
+                <img src="<%= toy.image1_url %>" width="300" height="300" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption"><%= toy.name_of_toy %></figcaption>
+              </figure>
+          <% }); %>
+          
           </div>
-          <div class="col-md-12 text-center"> <h3>Expected Arrival: May 5th 2019</h3>
+          <div class="col-md-12 text-center"> <h3>Expected Arrival: <%= toys[0].delivery_date %></h3>
           </br></div>
           
     
